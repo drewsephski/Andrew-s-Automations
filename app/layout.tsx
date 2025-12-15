@@ -7,15 +7,30 @@ import { Analytics } from "@vercel/analytics/react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { ThemeProvider } from "@/components/theme-provider";
 import { StyledLink } from "@/components/styled-link";
+import { Toaster } from "@/components/ui/toaster";
 
 import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://9d8.dev"),
-  title: "9d8 :: software design and development",
+  metadataBase: new URL("https://andrews-automations.com"),
+  title: "Andrew's Automations :: AI-Powered App Marketplace",
   description:
-    "Engineering Studio building Websites and Software for teams who value Design and Marketing. Located in San Diego, California and Salt Lake City, Utah.",
+    "Discover and deploy AI-powered applications and automation tools. Engineering studio building modern web apps with authentication, payments, and AI integrations.",
+  keywords: ["AI apps", "automation", "web development", "SaaS", "no-code", "AI tools", "app marketplace"],
+  creator: "Drew Sepeczi",
+  authors: [{ name: "Drew Sepeczi" }],
+  openGraph: {
+    title: "Andrew's Automations - AI App Marketplace",
+    description: "Browse and deploy AI-powered applications and automation tools",
+    type: "website",
+    url: "https://andrews-automations.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Andrew's Automations",
+    description: "AI-powered app marketplace and automation tools",
+  },
 };
 
 export default function RootLayout({
@@ -33,9 +48,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Nav />
-          <main className="mb-12 grid gap-6 p-6 md:gap-12">{children}</main>
+          <main className="mb-12 flex flex-col justify-center items-center gap-6 p-6 md:gap-12">{children}</main>
           <Footer />
           <Analytics />
+          <Toaster />
         </ThemeProvider>
       </body>
     </Layout>
@@ -50,15 +66,18 @@ const Nav = () => {
           <Link className="dark:text-yellow-200" href="/">
             <Image
               src="/logo.svg"
-              alt="9d8 logo"
+              alt="Andrew's Automations logo"
               className="invert transition-all hover:scale-105 hover:opacity-75 dark:invert-0"
               width={56}
               height={35.26}
             />
-            <span className="sr-only">9d8</span>
+            <span className="sr-only">Andrew&apos;s Automations</span>
           </Link>
         </h1>
-        <Links />
+        <div className="flex items-center gap-4">
+          <Links />
+          <ModeToggle />
+        </div>
       </div>
     </div>
   );
@@ -70,13 +89,12 @@ const Footer = () => {
       <h3>
         ©{" "}
         <span className="sr-only">
-          <a href="https://cameron.so">Cameron</a> and{" "}
-          <a href="https://bridger.to">Bridger</a>
+          <a href="https://cal.com/drew-sepeczi-gbmxql">Drew Sepeczi</a>
         </span>{" "}
-        1998 to present (founded 2020)
+        2025 Andrew&apos;s Automations
       </h3>
       <div className="hidden w-fit items-center gap-2 md:flex">
-        <h3>:: Design and Code Studio</h3>
+        <h3>AI App Marketplace</h3>
         <ModeToggle />
       </div>
     </div>

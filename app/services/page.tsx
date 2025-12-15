@@ -55,11 +55,11 @@ export default function Home() {
 
 const Hero = () => {
   return (
-    <div className="grid gap-4 fade-in md:max-w-2xl">
-      <h1 className="sr-only text-4xl font-medium">9d8 Services</h1>
-      <h2 className="text-2xl">Subscription Services offered by 9d8</h2>
+    <div className="mx-auto max-w-2xl grid gap-4 fade-in">
+      <h1 className="sr-only text-4xl font-medium">Andrew&apos;s Automations</h1>
+      <h2 className="text-2xl">Subscription Services offered by Andrews Automations</h2>
       <p>
-        At 9d8, we are enthusiastic about collaborating with new brands to
+        At Andrews Automations, we are enthusiastic about collaborating with new brands to
         empower them through innovative technology solutions.
       </p>
       <h3>
@@ -69,11 +69,11 @@ const Hero = () => {
       </h3>
       <p className="text-[#9d89d8] dark:text-yellow-100">
         Interested? Please{" "}
-        <StyledLink href="mailto:bridger@9d8.dev,cameron@9d8.dev">
+        <StyledLink href="mailto:drewsepeczi@gmail.com">
           email us
         </StyledLink>{" "}
         or{" "}
-        <StyledLink href="https://cal.com/9d8dev">
+        <StyledLink href="https://cal.com/drew-sepeczi-gbmxql">
           book a meeting with us
         </StyledLink>
         .
@@ -84,7 +84,7 @@ const Hero = () => {
 
 const Pricing = () => {
   return (
-    <div className="grid gap-4 fade-in md:max-w-2xl">
+    <div className="mx-auto max-w-2xl grid gap-4 fade-in">
       <h3 className="text-lg">
         <Balancer>
           Subscriptions to build your business. Pause or cancel anytime.
@@ -113,17 +113,7 @@ const Pricing = () => {
 
 const Testimonials = () => {
   return (
-    <div className="grid gap-4 fade-in md:max-w-2xl">
-      <h3 className="text-xl">
-        We&apos;ve worked with some amazing companies.{" "}
-      </h3>
-      <ul className="flex-wrap gap-1 md:flex">
-        {companies.map((company, index) => (
-          <li className="" key={index}>
-            <StyledLink href={company.link}>{company.name} +</StyledLink>
-          </li>
-        ))}
-      </ul>
+    <div className="mx-auto max-w-2xl grid gap-4 fade-in">
       <p className="text-muted-foreground">
         See more of our <StyledLink href="/">work here</StyledLink>.
       </p>
