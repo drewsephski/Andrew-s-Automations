@@ -8,6 +8,9 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { ThemeProvider } from "@/components/theme-provider";
 import { StyledLink } from "@/components/styled-link";
 import { Toaster } from "@/components/ui/toaster";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +23,7 @@ export const metadata: Metadata = {
   keywords: ["AI apps", "automation", "web development", "SaaS", "no-code", "AI tools", "app marketplace"],
   creator: "Drew Sepeczi",
   authors: [{ name: "Drew Sepeczi" }],
+  viewport: "width=device-width, initial-scale=1",
   openGraph: {
     title: "Andrew's Automations - AI App Marketplace",
     description: "Browse and deploy AI-powered applications and automation tools",
@@ -48,7 +52,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Nav />
-          <main className="mb-12 flex flex-col justify-center items-center gap-6 p-6 md:gap-12">{children}</main>
+          <main className="mb-8 sm:mb-12 flex flex-col justify-center items-center gap-4 sm:gap-6 md:gap-12 p-4 sm:p-6">{children}</main>
           <Footer />
           <Analytics />
           <Toaster />
@@ -60,7 +64,7 @@ export default function RootLayout({
 
 const Nav = () => {
   return (
-    <div className="sticky left-0 right-0 top-0 z-50 bg-gradient-to-b from-background to-background/0 px-6 py-4 fade-in">
+    <div className="sticky left-0 right-0 top-0 z-50 bg-gradient-to-b from-background to-background/0 px-4 sm:px-6 py-4 fade-in">
       <div className="mt-4 flex justify-between gap-2">
         <h1>
           <Link className="dark:text-yellow-200" href="/">
@@ -68,18 +72,44 @@ const Nav = () => {
               src="/logo.svg"
               alt="Andrew's Automations logo"
               className="invert transition-all hover:scale-105 hover:opacity-75 dark:invert-0"
-              width={56}
-              height={35.26}
+              width={48}
+              height={30.2}
             />
             <span className="sr-only">Andrew&apos;s Automations</span>
           </Link>
         </h1>
-        <div className="flex items-center gap-4">
-          <Links />
+        <div className="flex items-center gap-2 sm:gap-4">
+          <div className="hidden sm:flex items-center gap-4">
+            <Links />
+          </div>
           <ModeToggle />
+          <div className="sm:hidden">
+            <MobileMenu />
+          </div>
         </div>
       </div>
     </div>
+  );
+};
+
+const MobileMenu = () => {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="ghost" size="icon">
+          <Menu className="h-5 w-5" />
+          <span className="sr-only">Toggle menu</span>
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+        <SheetHeader>
+          <SheetTitle>Navigation Menu</SheetTitle>
+        </SheetHeader>
+        <div className="flex flex-col gap-6 mt-8">
+          <Links />
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 };
 

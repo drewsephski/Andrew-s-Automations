@@ -15,14 +15,14 @@ type ProjectProps = {
 const Project = ({ name, link, image, desc, year, delay }: ProjectProps) => {
   return (
     <div
-      className="fade-in-bottom group h-fit w-fit rounded-lg border"
+      className="fade-in-bottom group h-fit w-full rounded-lg border"
       style={{ animationDelay: `${delay}ms` }}
     >
       <Link
         className="relative block overflow-hidden rounded-lg border"
         href={link}
       >
-        <div className="h-full w-full overflow-hidden">
+        <div className="h-48 sm:h-56 md:h-64 w-full overflow-hidden">
           <Image
             className="h-full w-full object-cover object-center transition-all md:group-hover:scale-[1.01]"
             width={720}
@@ -34,7 +34,7 @@ const Project = ({ name, link, image, desc, year, delay }: ProjectProps) => {
         </div>
 
         <div className="flex w-full flex-col justify-between gap-2 rounded-b-lg border-t bg-accent/25 p-4 md:flex-row md:items-center md:p-2 md:group-hover:bg-accent/50">
-          <p>
+          <p className="font-medium">
             {name}{" "}
             <ExternalLinkIcon className="mb-1 inline h-4 w-4 text-foreground/0 transition-all group-hover:text-foreground/80" />
           </p>
